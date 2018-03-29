@@ -23,11 +23,12 @@ class RegistrationForm extends React.Component {
                         username: values.username,
                         password: values.password,
                     }),
-                }).then(function(response) { // success HANDLER  resolved
+                }).then((response) => { // success HANDLER  resolved
                     message.success(response);
-                }, function(response) { // Failure HANDLER
+                    this.props.history.push('/login');
+                }, (response) => { // Failure HANDLER
                     message.error(response.responseText);
-                }).catch(function(error) { // 如果到了catch block 就让fail来抓
+                }).catch((error) => { // 如果到了catch block 就让fail来抓
                     message.error(error);
                 });
             }
