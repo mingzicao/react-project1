@@ -16,7 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header/>
+        <Header isLoggedIn = {this.state.isLoggedIn}/>
         <Main isLoggedIn = {this.state.isLoggedIn} loginHandler = {this.loginHandler}/>
       </div>
     );
