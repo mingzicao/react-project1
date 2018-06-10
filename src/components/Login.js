@@ -10,6 +10,7 @@ class NormalLoginForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
+
             if (!err) {
                 console.log('Received values of form: ', values);
                 $.ajax({
@@ -19,7 +20,11 @@ class NormalLoginForm extends React.Component {
                         username: values.username,
                         password: values.password,
                     }),
+
                 }).then((response) => {
+                    message.success(response);
+                    this.props.loginHandler(response);
+
                     this.props.handleLogin(response);
                 }, (error) => {
                     message.error(error.responseText);
