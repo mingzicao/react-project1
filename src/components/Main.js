@@ -7,6 +7,10 @@ export class Main extends React.Component {
     getLogin = () => {
         return this.props.isLoggedIn ? <Home/> : <Login loginHandler = {this.props.loginHandler()}/>
     }
+
+    getHome = () => {
+        return this.props.isLoggedIn ? <Home/> : <Login loginHandler = {this.props.loginHandler()}/>
+    }
     render() {
         return (
             <div className="main">
@@ -14,6 +18,7 @@ export class Main extends React.Component {
                     <Route exact path="/" render={this.getLogin}/>
                     <Route path="/register" component={Register}/>
                     <Route path="/login" render={this.getLogin}/>
+                    <Route path="/home" render={this.getHome}/>
                     <Route render={this.getLogin}/>
                 </Switch>
             </div>
